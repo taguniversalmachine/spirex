@@ -94,4 +94,9 @@ defmodule Term.Capability do
     end
   end
 
+  def names do
+    atom_strings = Enum.map(capabilities(), fn {cap, _} -> to_string(cap) end)
+    Enum.map(atom_strings, fn str -> String.slice(str, 10, 100) end)
+  end
+
 end
